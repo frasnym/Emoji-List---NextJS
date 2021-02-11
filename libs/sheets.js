@@ -30,7 +30,7 @@ export async function getEmojiList() {
 				browser: row[4],
 				short_name: row[16],
 				emojipedia_slug: row[17],
-				descriptions: row[18] || '',
+				descriptions: row[18] ? row[18].split(';')[0] : '',
 			}));
 		}
 	} catch (err) {
