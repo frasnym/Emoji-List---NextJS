@@ -1,17 +1,6 @@
+import EmojiList from '../components/emoji-list/EmojiList';
 import Layout from '../components/layout/Layout';
 import { getEmojiList } from '../libs/sheets';
-
-// width: 100%;
-// line-height: 1.8rem;
-// font-size: 1.2rem;
-// color: var(--color-black);
-// border-radius: var(--border-radius-md);
-// border: 2px solid var(--color-gray-3);
-// background: var(--color-gray-2);
-// outline: none;
-
-// border-color: rgba(var(--color-brand-rgb),.5);
-// background: var(--color-gray-0);
 
 export default function IndexPage({ emojis }) {
 	return (
@@ -20,7 +9,7 @@ export default function IndexPage({ emojis }) {
 				className="w-full text-xl rounded-md border-2 border-solid outline-none bg-gray-200 border-gray-300 text-black focus:bg-gray-50 focus:border-gray-200 p-3"
 				placeholder="🔎 Search for an Emoji"
 			/>
-			{emojis[0].title}
+			<EmojiList emojis={emojis} />
 		</Layout>
 	);
 }

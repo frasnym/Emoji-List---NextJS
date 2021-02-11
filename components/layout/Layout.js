@@ -14,7 +14,7 @@ export default function Layout(props) {
 			</Head>
 			<Header />
 			<div className="w-screen h-screen flex content-center items-center bg-gray-50">
-				<div className="m-auto shadow-lg sm:rounded-3xl sm:p-20 p-3">
+				<div className="m-auto shadow-lg sm:rounded-3xl p-3 sm:p-20 lg:w-4/5">
 					{props.children}
 				</div>
 			</div>

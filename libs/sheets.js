@@ -24,13 +24,13 @@ export async function getEmojiList() {
 
 		if (rows.length) {
 			return rows.map((row) => ({
-				title: row[2],
-				subtitle: row[3],
-				code: row[4],
-				browser: row[5],
-				short_name: row[17],
-				emojipedia_slug: row[18] || null,
-				descriptions: row[19] || null,
+				title: row[1],
+				subtitle: row[2],
+				code: row[3],
+				browser: row[4],
+				short_name: row[16],
+				emojipedia_slug: row[17] || null,
+				descriptions: row[18] || null,
 			}));
 		}
 	} catch (err) {
