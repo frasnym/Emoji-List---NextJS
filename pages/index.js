@@ -1,15 +1,47 @@
+import { useState } from 'react';
 import EmojiList from '../components/emoji-list/EmojiList';
 import Layout from '../components/layout/Layout';
 import { getEmojiList } from '../libs/sheets';
 
 export default function IndexPage({ emojis }) {
+	const [search, setSearch] = useState('');
+	const [updatedEmojis, setUpdatedEmojis] = useState(emojis);
+
+	const searchHandler = (event) => {
+		const searchedText = event.target.value.toLowerCase();
+		setSearch(searchedText);
+
+		if (searchedText.length >= 3) {
+			const newEmojis = emojis.filter((e) =>
+				(e.short_name + e.descriptions)
+					.toLowerCase()
+					.includes(searchedText)
+			);
+			setUpdatedEmojis(newEmojis);
+		} else {
+			setUpdatedEmojis(emojis);
+		}
+	};
+
 	return (
 		<Layout>
 			<input
 				className="w-full text-xl rounded-md border-2 border-solid outline-none bg-gray-200 border-gray-300 text-black focus:bg-gray-50 focus:border-gray-200 p-3"
 				placeholder="🔎 Search for an Emoji"
+				value={search}
+				onChange={searchHandler}
 			/>
-			<EmojiList emojis={emojis} />
+			{search.length < 3 && search.length !== 0 ? (
+				<span className="text-red-400 font-bold mt-3 inline-block">
+					Please enter at least 3 characters to search...
+				</span>
+			) : null}
+			{search.length >= 3 ? (
+				<div className="bg-green-400 text-green-100 font-bold mt-3 p-1 inline-block rounded">
+					{updatedEmojis.length} Found
+				</div>
+			) : null}
+			<EmojiList emojis={updatedEmojis} />
 		</Layout>
 	);
 }

@@ -29,8 +29,8 @@ export async function getEmojiList() {
 				code: row[3],
 				browser: row[4],
 				short_name: row[16],
-				emojipedia_slug: row[17] || null,
-				descriptions: row[18] || null,
+				emojipedia_slug: row[17],
+				descriptions: row[18] || '',
 			}));
 		}
 	} catch (err) {
