@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import EmojiList from '../components/emoji-list/EmojiList';
 import Layout from '../components/layout/Layout';
+import Emoji from '../components/ui/emoji/Emoji';
 import { getEmojiList } from '../libs/sheets';
 
 export default function IndexPage({ emojis }) {
@@ -25,6 +26,20 @@ export default function IndexPage({ emojis }) {
 
 	return (
 		<Layout>
+			<p className="text-2xl font-bold mb-2">
+				Hi <Emoji symbol="👋" />, this page provides a list of the
+				Unicode emoji characters and sequences.
+				<br />
+				There is <text className="text-green-500">
+					{emojis.length}
+				</text>{' '}
+				emojis available on{' '}
+				<text className="text-green-400">v13.1</text>{' '}
+				<Emoji symbol="🎉" />
+			</p>
+			<p className="text-xl font-bold text-gray-500 mb-5">
+				You can <b>Select</b> and <b>Copy</b> Emoji by clicking it!
+			</p>
 			<input
 				className="w-full text-xl rounded-md border-2 border-solid outline-none bg-gray-200 border-gray-300 text-black focus:bg-gray-50 focus:border-gray-200 p-3"
 				placeholder="🔎 Search for an Emoji"
