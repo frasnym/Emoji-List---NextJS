@@ -1,18 +1,12 @@
-import Head from 'next/head';
+import Layout from '../components/layout/Layout';
 import { getEmojiList } from '../libs/sheets';
 
 export default function IndexPage({ emojis }) {
 	return (
-		<>
-			<Head>
-				<title>Title - FrasNym</title>
-				<meta
-					name="viewport"
-					content="initial-scale=1.0, width=device-width"
-				/>
-			</Head>
+		<Layout>
 			{emojis[0].title}
-		</>
+			input
+		</Layout>
 	);
 }
 
